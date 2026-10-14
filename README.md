@@ -4,7 +4,7 @@ by: Zarianna (100% vibe coded)
 
 <img width="514" height="641" alt="Screenshot 2026-10-13 220854" src="https://github.com/user-attachments/assets/1c34b0e5-ea6b-4cb7-93e5-69c86f1362f2" />
 
-[Final Heaven Demo]([[https://youtu.be/1FU9Q8cAnL0](https://youtu.be/1FU9Q8cAnL0)])
+[Final Heaven Demo]([https://youtu.be/1FU9Q8cAnL0](https://youtu.be/1FU9Q8cAnL0))
 
 Weapon-skill animation freezes with synchronized WS visuals. Includes 177 exported timing profiles as the defaults.
 
