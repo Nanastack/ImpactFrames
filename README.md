@@ -1,4 +1,4 @@
-# Impact Frames 1.2.1
+# Impact Frames 1.3.0
 
 by: Zarianna (100% vibe coded)
 
