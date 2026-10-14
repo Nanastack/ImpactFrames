@@ -1,0 +1,10 @@
+# Local settings and build artifacts
+config/
+.vs/
+__pycache__/
+*.pdb
+*.lib
+*.exp
+*.obj
+Thumbs.db
+.DS_Store
