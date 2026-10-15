@@ -1,0 +1,33 @@
+{
+  "addon_version": "1.2.1",
+  "dll_filename": "impact_native_release_v1.dll",
+  "architecture": "Windows x86 (32-bit)",
+  "released_dll_sha256": "4cbcb55ffdd2dd2b7b53f718505ca5dde21ecdb170eae641d08de2a2d1d65ee5",
+  "source_sha256": "dae825e5dd48153bf47c5d0aa7c63d6c6346218055fbd9cecbe90722f43ad6ca",
+  "minhook_commit": "c3fcafdc10146beb5919319d0683e44e3c30d537",
+  "exports": [
+    "impact_actor_pause_age",
+    "impact_actor_stopped",
+    "impact_cancel",
+    "impact_cancel_actor",
+    "impact_effect_holds",
+    "impact_effect_sync_available",
+    "impact_initialize",
+    "impact_pause",
+    "impact_player_calls",
+    "impact_set_effect_sync",
+    "impact_set_player",
+    "impact_shutdown",
+    "impact_stopped_calls"
+  ],
+  "original_build_flags": [
+    "--target=i686-pc-windows-msvc",
+    "/MT",
+    "/O2",
+    "/EHsc",
+    "/W4",
+    "/LD",
+    "/MACHINE:X86"
+  ],
+  "original_toolchain": "clang-cl 20; MSVC libraries 14.44.35207; Windows SDK 10.0.26100.0"
+}

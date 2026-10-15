@@ -1,6 +1,6 @@
 addon.name='impactframes'
 addon.author='Zarianna (100% vibe coded)'
-addon.version='1.3.0'
+addon.version='1.3.1'
 addon.desc='Weapon-skill impact freezes and synchronized visuals.'
 require('common')
 local imgui=require('imgui')
@@ -55,7 +55,7 @@ local function load_editor()
     editorDirty=false
 end
 local function save_editor()
-    if not profiles.validate(editor) then editorMessage='Not saved: hit times must increase and stay within 0Ã¢â‚¬â€œ10000 ms.';return false end
+    if not profiles.validate(editor) then editorMessage='Not saved: hit times must increase and stay within 0ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“10000 ms.';return false end
     local profile=profiles.copy(editor);profile.key=editorKey;profile.enabled=editor.enabled
     options.profile_overrides[editorKey]=profile;core:cancel();save();editorDirty=false;editorMessage='Override saved.'
     return true
@@ -99,7 +99,6 @@ end
 local function preview_ws()
     if not localTesting then return end
     if editorDirty and not save_editor() then return end
-    if not core.enabled then say('Enable Impact Frames first.');return end
     local memory=AshitaCore:GetMemoryManager()
     local index=memory:GetParty():GetMemberTargetIndex(0)
     local target=memory:GetTarget():GetTargetIndex(0)
@@ -113,13 +112,15 @@ local function preview_ws()
     local resource=preview.resource(skill,race)
     if not resource then say('No local animation mapping for this WS and race.');return end
     local profile=profiles.resolve(options.profile_overrides,skill,resource.animation,race)
-    if not profile or profiles.disabled(options,skill,profile,race) then say('Enable a timing profile for this WS and your actual race.');return end
-    local hits=profiles.hits(profile,config,skill)
-    if not profiles.validate({hits=hits}) then return end
+    local hits
+    if core.enabled and profile and not profiles.disabled(options,skill,profile,race) then
+        hits=profiles.hits(profile,config,skill)
+        if not profiles.validate({hits=hits}) then return end
+    end
     core:cancel();native.cancel();preview.cancel()
     local ok,message=preview.start(actorPtr,targetPtr,race,skill)
     say(message)
-    if ok then core:queue(entity:GetServerId(index),entity:GetServerId(target),imgui.GetTime(),hits) end
+    if ok and hits then core:queue(entity:GetServerId(index),entity:GetServerId(target),imgui.GetTime(),hits) end
 end
 local function render_settings()
     if not window[1] then konamiStep=1;if editorDirty then save_editor() end;return end

@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "build_script_executed": true,
+  "architecture": "x86",
+  "exports_match_published": true,
+  "audio_exports": false,
+  "text_section_matches_published": true
+}

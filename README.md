@@ -1,6 +1,11 @@
-# Impact Frames 1.2.1
+# Impact Frames 1.3.1
 
 by: Zarianna (100% vibe coded)
+
+<img width="514" height="641" alt="Screenshot 2026-10-13 220854" src="https://github.com/user-attachments/assets/1c34b0e5-ea6b-4cb7-93e5-69c86f1362f2" />
+
+
+[ImpactFrames Demo](https://youtu.be/ZeoeKh82QUk)
 
 Weapon-skill animation freezes with synchronized WS visuals. Includes 177 exported timing profiles as the defaults.
 
