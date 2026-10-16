@@ -1,6 +1,6 @@
 addon.name='impactframes'
 addon.author='Zarianna (100% vibe coded)'
-addon.version='1.3.1'
+addon.version='1.3.3'
 addon.desc='Weapon-skill impact freezes and synchronized visuals.'
 require('common')
 local imgui=require('imgui')
@@ -151,8 +151,11 @@ local function render_settings()
         imgui.TextWrapped('Editing: '..profiles.races[options.selected_race]..'. These settings follow the race of the player performing the WS.')
         local selected=options.selected_skill
         if imgui.BeginCombo('Weapon skill',(names[selected] or 'Unknown skill')..' ('..selected..')') then
-            if imgui.IsWindowAppearing() then skillSearch[1]=names[selected] or tostring(selected) end
-            imgui.InputText('Search name or ID',skillSearch,128)
+            if imgui.IsWindowAppearing() then
+                skillSearch[1]=''
+                imgui.SetKeyboardFocusHere()
+            end
+            imgui.InputText('Search name or ID',skillSearch,128,ImGuiInputTextFlags_AutoSelectAll)
             local matches=search.skills(names,skillSearch[1])
             if #matches==0 then imgui.Text('No matching weapon skills.') end
             for _,skill in ipairs(matches) do
@@ -160,8 +163,8 @@ local function render_settings()
                 if imgui.Selectable(skill.name..' ('..skill.id..')',current) then
                     if editorDirty then save_editor() end
                     options.selected_skill=skill.id;editor=nil;save()
+                    imgui.CloseCurrentPopup()
                 end
-                if current then imgui.SetItemDefaultFocus() end
             end
             imgui.EndCombo()
         end
